@@ -1,16 +1,23 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import { StatusBar } from 'expo-status-bar'
+import React, { useState } from 'react'
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native'
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
+import { Searchbar } from 'react-native-paper'
 
 const App = () => {
+  const [query, setQuery] = useState('')
+
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text>I'm ready to get started!</Text>
+        <View style={styles.searchBar}>
+          <Searchbar
+            placeholder="Search Here"
+            value={query}
+            onChangeText={(text) => setQuery(text)}
+          />
         </View>
       </SafeAreaView>
-      <StatusBar style="auto" />
+      <ExpoStatusBar style="auto" />
     </>
   )
 }
@@ -20,6 +27,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     marginTop: StatusBar.currentHeight || 0
+  },
+  searchBar: {
+    padding: 15,
+    backgroundColor: '#fff'
   }
 })
 
