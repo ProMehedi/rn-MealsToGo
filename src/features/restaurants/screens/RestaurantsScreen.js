@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SafeAreaView, StatusBar, View } from 'react-native'
 import { Searchbar } from 'react-native-paper'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 import RestaurantInfo from '../components/RestaurantCard'
 
 const Root = styled(SafeAreaView)`
