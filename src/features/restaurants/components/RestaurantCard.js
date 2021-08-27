@@ -16,9 +16,11 @@ const CardContent = styled(Card.Content)`
 const Title = styled(Text)`
   font-size: 20px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.ui.primary};
 `
 const Paragraph = styled(Text)`
   font-size: 16px;
+  color: ${(props) => props.theme.colors.ui.secondary};
 `
 
 const RestaurantCard = ({ restaurant = {} }) => {
