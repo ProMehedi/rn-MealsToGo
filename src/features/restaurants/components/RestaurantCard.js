@@ -10,16 +10,18 @@ const AppCard = styled(Card)``
 const CardCover = styled(Card.Cover)``
 
 const CardContent = styled(Card.Content)`
-  padding: 15px;
+  padding: ${(props) => props.theme.space[3]};
 `
 
 const Title = styled(Text)`
-  font-size: 20px;
-  font-weight: bold;
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) => props.theme.fontSizes.title};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   color: ${(props) => props.theme.colors.ui.primary};
 `
 const Paragraph = styled(Text)`
-  font-size: 16px;
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.body};
   color: ${(props) => props.theme.colors.ui.secondary};
 `
 

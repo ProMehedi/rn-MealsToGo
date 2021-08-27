@@ -6,19 +6,19 @@ import RestaurantInfo from '../components/RestaurantCard'
 
 const Root = styled(SafeAreaView)`
   flex: 1;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.bg.primary};
   margin-top: ${StatusBar.currentHeight || 0}px;
 `
 
 const SearchWrap = styled(View)`
-  padding: 15px;
-  background-color: #fff;
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `
 
 const Content = styled(View)`
   flex: 1;
-  padding: 15px;
-  background-color: #f0f0f0;
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.secondary};
 `
 
 const RestaurantsScreen = () => {
