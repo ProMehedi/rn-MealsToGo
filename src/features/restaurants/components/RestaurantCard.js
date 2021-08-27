@@ -9,6 +9,25 @@ const Root = styled(View)``
 
 const AppCard = styled(Card)``
 
+const ImageWrap = styled(View)``
+
+const Avaiable = styled(Text)`
+  position: absolute;
+  top: ${(props) => props.theme.space[2]};
+  right: ${(props) => props.theme.space[2]};
+  background-color: ${({ theme }) => theme.colors.ui.error};
+  padding: ${(props) => props.theme.space[1]} ${(props) => props.theme.space[2]};
+  border-radius: ${(props) => props.theme.space[1]};
+  color: ${(props) => props.theme.colors.ui.quaternary};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+  text-transform: uppercase;
+  ${({ open }) =>
+    open &&
+    `
+    background: #1dbf73;
+  `}
+`
+
 const CardCover = styled(Card.Cover)``
 
 const CardContent = styled(Card.Content)`
@@ -59,7 +78,12 @@ const RestaurantCard = ({ restaurant = {} }) => {
   return (
     <Root>
       <AppCard>
-        <CardCover source={{ uri: photos[0] }} />
+        <ImageWrap>
+          <CardCover source={{ uri: photos[0] }} />
+          <Avaiable open={isOpenNow}>
+            {isOpenNow ? 'Open now' : 'Closed'}
+          </Avaiable>
+        </ImageWrap>
         <CardContent>
           <Title>{name}</Title>
           <Rating>
