@@ -12,8 +12,10 @@ export const SearchWrap = styled(View)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `
 
-export const Content = styled(View)`
-  flex: 1;
-  padding: ${(props) => props.theme.space[3]};
+export const Restaurants = styled.FlatList.attrs({
+  contentContainerStyle: {
+    padding: 16
+  }
+})`
   background-color: ${(props) => props.theme.colors.bg.secondary};
 `

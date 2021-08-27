@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import { Searchbar } from 'react-native-paper'
 
-import { Content, Root, SearchWrap } from './RestaurantsScreen.style'
-import RestaurantInfo from '../components/RestaurantCard'
+import {
+  Content,
+  Restaurants,
+  Root,
+  SearchWrap
+} from './RestaurantsScreen.style'
+import RestaurantCard from '../components/RestaurantCard'
+import Spacer from '../../../components/spacer/Spacer'
 
 const RestaurantsScreen = () => {
   const [query, setQuery] = useState('')
@@ -16,9 +22,12 @@ const RestaurantsScreen = () => {
           onChangeText={(text) => setQuery(text)}
         />
       </SearchWrap>
-      <Content>
-        <RestaurantInfo />
-      </Content>
+      <Restaurants
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+        renderItem={({ item }) => <RestaurantCard />}
+        keyExtractor={(item) => item.toString()}
+        ItemSeparatorComponent={() => <Spacer position="bottom" size="large" />}
+      />
     </Root>
   )
 }
