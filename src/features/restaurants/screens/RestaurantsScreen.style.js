@@ -1,4 +1,4 @@
-import { SafeAreaView, StatusBar, View } from 'react-native'
+import { FlatList, SafeAreaView, StatusBar, View } from 'react-native'
 import styled from 'styled-components/native'
 
 export const Root = styled(SafeAreaView)`
@@ -12,7 +12,7 @@ export const SearchWrap = styled(View)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `
 
-export const Restaurants = styled.FlatList.attrs({
+export const Restaurants = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16
   }
