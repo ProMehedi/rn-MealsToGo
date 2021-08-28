@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Searchbar } from 'react-native-paper'
 
-import { Restaurants, SearchWrap } from './RestaurantsScreen.style'
-import RestaurantCard from '../components/RestaurantCard'
+import { Restaurants, SearchWrap } from './restaurants.screen.style'
+import RestaurantCard from '../components/restaurant.card.component'
 import Spacer from '../../../components/spacer/Spacer'
 import SafeArea from '../../../utils/SafeArea'
 

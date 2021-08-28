@@ -10,7 +10,7 @@ import {
   RateCount,
   Rating,
   Root
-} from './RestaurantCard.style'
+} from './restaurant.card.component.style'
 import star from '../../../../assets/star'
 import AppText from '../../../components/typography/AppText'
 

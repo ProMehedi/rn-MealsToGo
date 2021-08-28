@@ -1,4 +1,5 @@
 import React from 'react'
+import { Text } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -9,11 +10,10 @@ import {
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato'
 import { Ionicons } from '@expo/vector-icons'
 
-import RestaurantsScreen from './src/features/restaurants/screens/RestaurantsScreen'
+import RestaurantsScreen from './src/features/restaurants/screens/restaurants.screen'
 import { ThemeProvider } from 'styled-components/native'
-import { theme } from './src/infrastructure/theme/index'
 import SafeArea from './src/utils/SafeArea'
-import { Text } from 'react-native'
+import { theme } from './src/infrastructure/theme/index'
 
 const Maps = () => (
   <SafeArea>
@@ -46,7 +46,6 @@ const App = () => {
         <NavigationContainer>
           <Tab.Navigator
             screenOptions={({ route }) => ({
-              headerShown: false,
               tabBarIcon: ({ color, size }) => {
                 const icons = {
                   Restaurants: 'md-restaurant',
@@ -61,12 +60,11 @@ const App = () => {
                     size={size}
                   />
                 )
-              }
+              },
+              headerShown: false,
+              tabBarActiveTintColor: '#e91e63',
+              tabBarInactiveTintColor: 'gray'
             })}
-            tabBarOptions={{
-              activeTintColor: '#e91e63',
-              inactiveTintColor: 'gray'
-            }}
           >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
             <Tab.Screen name="Maps" component={Maps} />
