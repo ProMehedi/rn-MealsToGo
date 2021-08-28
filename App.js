@@ -45,41 +45,32 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Tab.Navigator
+            screenOptions={({ route }) => ({
+              headerShown: false,
+              tabBarIcon: ({ color, size }) => {
+                const icons = {
+                  Restaurants: 'md-restaurant',
+                  Maps: 'md-map',
+                  Settings: 'md-settings'
+                }
+
+                return (
+                  <Ionicons
+                    name={icons[route.name]}
+                    color={color}
+                    size={size}
+                  />
+                )
+              }
+            })}
             tabBarOptions={{
               activeTintColor: '#e91e63',
               inactiveTintColor: 'gray'
             }}
           >
-            <Tab.Screen
-              name="Restaurants"
-              component={RestaurantsScreen}
-              options={{
-                tabBarLabel: 'Restaurants',
-                tabBarIcon: ({ color }) => (
-                  <Ionicons name="md-restaurant" color={color} size={26} />
-                )
-              }}
-            />
-            <Tab.Screen
-              name="Maps"
-              component={Maps}
-              options={{
-                tabBarLabel: 'Maps',
-                tabBarIcon: ({ color }) => (
-                  <Ionicons name="md-map" color={color} size={26} />
-                )
-              }}
-            />
-            <Tab.Screen
-              name="Settings"
-              component={Settings}
-              options={{
-                tabBarLabel: 'Settings',
-                tabBarIcon: ({ color }) => (
-                  <Ionicons name="md-settings" color={color} size={26} />
-                )
-              }}
-            />
+            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+            <Tab.Screen name="Maps" component={Maps} />
+            <Tab.Screen name="Settings" component={Settings} />
           </Tab.Navigator>
         </NavigationContainer>
       </ThemeProvider>
