@@ -14,7 +14,7 @@ import RestaurantsScreen from './src/features/restaurants/screens/restaurants.sc
 import { ThemeProvider } from 'styled-components/native'
 import SafeArea from './src/utils/SafeArea'
 import { theme } from './src/infrastructure/theme/index'
-import { RestaurantsProvider } from './src/services/restaurants/restaurants.context'
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context'
 
 const Maps = () => (
   <SafeArea>
@@ -44,7 +44,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsProvider>
+        <RestaurantsContextProvider>
           <NavigationContainer>
             <Tab.Navigator
               screenOptions={({ route }) => ({
@@ -73,7 +73,7 @@ const App = () => {
               <Tab.Screen name="Settings" component={Settings} />
             </Tab.Navigator>
           </NavigationContainer>
-        </RestaurantsProvider>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

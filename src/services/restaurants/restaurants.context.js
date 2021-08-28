@@ -1,14 +1,14 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 import { restaurantsRequest, restaurantsTransform } from './restaurants.service'
 
 export const RestaurantsContext = createContext()
 
-export const RestaurantsProvider = ({ children }) => {
+export const RestaurantsContextProvider = ({ children }) => {
   const [restaurants, setRestaurants] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const fetchRestaurants = async () => {
+  const retrieveRestaurants = () => {
     setIsLoading(true)
     setTimeout(() => {
       restaurantsRequest()
@@ -25,8 +25,8 @@ export const RestaurantsProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    fetchRestaurants()
-  }, [restaurants])
+    retrieveRestaurants()
+  }, [])
 
   return (
     <RestaurantsContext.Provider value={{ restaurants, isLoading, error }}>

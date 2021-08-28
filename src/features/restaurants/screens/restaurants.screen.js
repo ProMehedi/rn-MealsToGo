@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Searchbar } from 'react-native-paper'
+import { ActivityIndicator, Searchbar } from 'react-native-paper'
 
 import { Restaurants, SearchWrap } from './restaurants.screen.style'
 import RestaurantCard from '../components/restaurant.card.component'
@@ -14,6 +14,7 @@ const RestaurantsScreen = () => {
 
   return (
     <SafeArea>
+      {isLoading && <ActivityIndicator animating={true} />}
       <SearchWrap>
         <Searchbar
           placeholder="Search Here"
