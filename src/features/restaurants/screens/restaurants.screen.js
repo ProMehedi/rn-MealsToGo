@@ -6,6 +6,7 @@ import RestaurantCard from '../components/restaurant.card.component'
 import Spacer from '../../../components/spacer/Spacer'
 import SafeArea from '../../../utils/SafeArea'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
+import Loader from '../../../components/Loader'
 
 const RestaurantsScreen = () => {
   const [query, setQuery] = useState('')
@@ -14,7 +15,7 @@ const RestaurantsScreen = () => {
 
   return (
     <SafeArea>
-      {isLoading && <ActivityIndicator animating={true} />}
+      {isLoading && <Loader size="large" />}
       <SearchWrap>
         <Searchbar
           placeholder="Search Here"
