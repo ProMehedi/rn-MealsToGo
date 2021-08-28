@@ -15,6 +15,7 @@ import { ThemeProvider } from 'styled-components/native'
 import SafeArea from './src/utils/SafeArea'
 import { theme } from './src/infrastructure/theme/index'
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurants.context'
+import { LocationContextProvider } from './src/services/location/location.context'
 
 const Maps = () => (
   <SafeArea>
@@ -44,36 +45,38 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarIcon: ({ color, size }) => {
-                  const icons = {
-                    Restaurants: 'md-restaurant',
-                    Maps: 'md-map',
-                    Settings: 'md-settings'
-                  }
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator
+                screenOptions={({ route }) => ({
+                  tabBarIcon: ({ color, size }) => {
+                    const icons = {
+                      Restaurants: 'md-restaurant',
+                      Maps: 'md-map',
+                      Settings: 'md-settings'
+                    }
 
-                  return (
-                    <Ionicons
-                      name={icons[route.name]}
-                      color={color}
-                      size={size}
-                    />
-                  )
-                },
-                headerShown: false,
-                tabBarActiveTintColor: '#e91e63',
-                tabBarInactiveTintColor: 'gray'
-              })}
-            >
-              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-              <Tab.Screen name="Maps" component={Maps} />
-              <Tab.Screen name="Settings" component={Settings} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </RestaurantsContextProvider>
+                    return (
+                      <Ionicons
+                        name={icons[route.name]}
+                        color={color}
+                        size={size}
+                      />
+                    )
+                  },
+                  headerShown: false,
+                  tabBarActiveTintColor: '#e91e63',
+                  tabBarInactiveTintColor: 'gray'
+                })}
+              >
+                <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+                <Tab.Screen name="Maps" component={Maps} />
+                <Tab.Screen name="Settings" component={Settings} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
