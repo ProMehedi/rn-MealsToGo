@@ -14,6 +14,7 @@ import RestaurantsScreen from './src/features/restaurants/screens/restaurants.sc
 import { ThemeProvider } from 'styled-components/native'
 import SafeArea from './src/utils/SafeArea'
 import { theme } from './src/infrastructure/theme/index'
+import { restaurantsRequest } from './src/services/restaurants/restaurants.service'
 
 const Maps = () => (
   <SafeArea>
@@ -39,6 +40,10 @@ const App = () => {
   }
 
   const Tab = createBottomTabNavigator()
+
+  restaurantsRequest().then((response) => {
+    console.log(response)
+  })
 
   return (
     <>
