@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Restaurants Listing App With Maps & Profile Building Feature using React Native(expo)",
+    "githubUrl": "https://github.com/ProMehedi/rn-MealsToGo"
   }
 }
