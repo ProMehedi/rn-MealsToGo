@@ -10,7 +10,7 @@ import { RestaurantsContext } from '../../../services/restaurants/restaurants.co
 const RestaurantsScreen = () => {
   const [query, setQuery] = useState('')
 
-  const restaurantsContext = useContext(RestaurantsContext)
+  const { restaurants, isLoading, error } = useContext(RestaurantsContext)
 
   return (
     <SafeArea>
@@ -22,9 +22,9 @@ const RestaurantsScreen = () => {
         />
       </SearchWrap>
       <Restaurants
-        data={restaurantsContext.restaurants}
-        renderItem={({ item }) => <RestaurantCard />}
-        keyExtractor={(item) => item.toString()}
+        data={restaurants}
+        renderItem={({ item }) => <RestaurantCard restaurant={item} />}
+        keyExtractor={(item) => item.name}
         ItemSeparatorComponent={() => <Spacer position="bottom" size="large" />}
       />
     </SafeArea>
