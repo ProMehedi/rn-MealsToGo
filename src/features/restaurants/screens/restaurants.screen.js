@@ -1,28 +1,20 @@
-import React, { useContext, useState } from 'react'
-import { ActivityIndicator, Searchbar } from 'react-native-paper'
+import React, { useContext } from 'react'
 
-import { Restaurants, SearchWrap } from './restaurants.screen.style'
+import { Restaurants } from './restaurants.screen.style'
 import RestaurantCard from '../components/restaurant.card.component'
 import Spacer from '../../../components/spacer/Spacer'
 import SafeArea from '../../../utils/SafeArea'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 import Loader from '../../../components/Loader'
+import Search from '../components/search.component'
 
 const RestaurantsScreen = () => {
-  const [query, setQuery] = useState('')
-
   const { restaurants, isLoading, error } = useContext(RestaurantsContext)
 
   return (
     <SafeArea>
       {isLoading && <Loader size="large" />}
-      <SearchWrap>
-        <Searchbar
-          placeholder="Search Here"
-          value={query}
-          onChangeText={(text) => setQuery(text)}
-        />
-      </SearchWrap>
+      <Search />
       <Restaurants
         data={restaurants}
         renderItem={({ item }) => <RestaurantCard restaurant={item} />}
