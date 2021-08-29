@@ -35,8 +35,8 @@ const RestaurantCard = ({ restaurant = {} }) => {
     <Root>
       <AppCard>
         <ImageWrap>
-          {isClosedTemporarily && <Closed>Closed Temporarily</Closed>}
           <CardCover source={{ uri: photos[0] }} />
+          {isClosedTemporarily && <Closed>Closed Temporarily</Closed>}
           <Avaiable open={isOpenNow}>
             {isOpenNow ? 'Open now' : 'Closed'}
           </Avaiable>
