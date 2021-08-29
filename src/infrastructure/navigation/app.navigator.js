@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 
-import RestaurantsScreen from '../../features/restaurants/screens/restaurants.screen'
 import SafeArea from '../../utils/SafeArea'
+import RestaurantsNavigator from './restaurants.navigator'
 
 const Maps = () => (
   <SafeArea>
@@ -31,7 +31,6 @@ export const AppNavigator = () => {
               Maps: 'md-map',
               Settings: 'md-settings'
             }
-
             return (
               <Ionicons name={icons[route.name]} color={color} size={size} />
             )
@@ -41,7 +40,7 @@ export const AppNavigator = () => {
           tabBarInactiveTintColor: 'gray'
         })}
       >
-        <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
         <Tab.Screen name="Maps" component={Maps} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
