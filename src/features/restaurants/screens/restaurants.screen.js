@@ -7,8 +7,9 @@ import SafeArea from '../../../utils/SafeArea'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 import Loader from '../../../components/Loader'
 import Search from '../components/search.component'
+import { Pressable } from 'react-native'
 
-const RestaurantsScreen = () => {
+const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading, error } = useContext(RestaurantsContext)
 
   return (
@@ -17,7 +18,11 @@ const RestaurantsScreen = () => {
       <Search />
       <Restaurants
         data={restaurants}
-        renderItem={({ item }) => <RestaurantCard restaurant={item} />}
+        renderItem={({ item }) => (
+          <Pressable onPress={() => navigation.navigate('RestaurantDetail')}>
+            <RestaurantCard restaurant={item} />
+          </Pressable>
+        )}
         keyExtractor={(item) => item.name}
         ItemSeparatorComponent={() => <Spacer position="bottom" size="large" />}
       />
