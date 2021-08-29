@@ -6,10 +6,7 @@ import {
   TransitionPresets
 } from '@react-navigation/stack'
 import RestaurantsScreen from '../../features/restaurants/screens/restaurants.screen'
-
-const RestaurantsDetail = () => {
-  return <Text>Restaurant Detail</Text>
-}
+import RestaurantDetailScreen from '../../features/restaurants/screens/restaurant.detail.screen'
 
 const RestaurantsNavigator = () => {
   const Stack = createStackNavigator()
@@ -22,7 +19,10 @@ const RestaurantsNavigator = () => {
       }}
     >
       <Stack.Screen name="Restaurant" component={RestaurantsScreen} />
-      <Stack.Screen name="RestaurantDetail" component={RestaurantsDetail} />
+      <Stack.Screen
+        name="RestaurantDetail"
+        component={RestaurantDetailScreen}
+      />
     </Stack.Navigator>
   )
 }
