@@ -8,6 +8,19 @@ export const AppCard = styled(Card)``
 
 export const ImageWrap = styled(View)``
 
+export const Closed = styled(Text)`
+  position: absolute;
+  top: ${(props) => props.theme.space[2]};
+  left: ${(props) => props.theme.space[2]};
+  background-color: ${({ theme }) => theme.colors.ui.error};
+  padding: ${(props) => props.theme.space[1]} ${(props) => props.theme.space[2]};
+  border-radius: ${(props) => props.theme.space[1]};
+  color: ${(props) => props.theme.colors.ui.quaternary};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+  text-transform: uppercase;
+  z-index: 1;
+`
+
 export const Avaiable = styled(Text)`
   position: absolute;
   top: ${(props) => props.theme.space[2]};
