@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components/native'
 import { Searchbar } from 'react-native-paper'
@@ -12,12 +12,6 @@ export const Root = styled(View)`
 const Search = () => {
   const { keyword, search } = useContext(LocationContext)
   const [query, setQuery] = useState(keyword)
-
-  useEffect(() => {
-    search(query)
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <Root>

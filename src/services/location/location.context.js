@@ -12,11 +12,14 @@ export const LocationContextProvider = ({ children }) => {
   const onSearch = (query) => {
     setIsLoading(true)
     setKeyword(query)
-    if (!query.length) {
+  }
+
+  useEffect(() => {
+    if (!keyword.length) {
       setIsLoading(false)
       return
     }
-    locationRequest(query.toLowerCase())
+    locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
         setLocation(result)
@@ -26,12 +29,7 @@ export const LocationContextProvider = ({ children }) => {
         setError(err)
         setIsLoading(false)
       })
-  }
-
-  useEffect(() => {
-    onSearch(keyword)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [keyword])
 
   return (
     <LocationContext.Provider
