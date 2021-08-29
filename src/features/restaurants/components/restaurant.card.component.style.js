@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { Card } from 'react-native-paper'
 import styled from 'styled-components/native'
 
@@ -29,6 +29,18 @@ export const CardCover = styled(Card.Cover)``
 
 export const CardContent = styled(Card.Content)`
   padding: ${(props) => props.theme.space[3]};
+`
+
+export const Row = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const Icon = styled(Image)`
+  width: 40px;
+  height: 40px;
+  resize-mode: contain;
 `
 
 export const Rating = styled(View)`

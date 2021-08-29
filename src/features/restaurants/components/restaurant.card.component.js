@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
 
 import {
@@ -6,10 +7,12 @@ import {
   Avaiable,
   CardContent,
   CardCover,
+  Icon,
   ImageWrap,
   RateCount,
   Rating,
-  Root
+  Root,
+  Row
 } from './restaurant.card.component.style'
 import star from '../../../../assets/star'
 import AppText from '../../../components/typography/AppText'
@@ -17,15 +20,12 @@ import AppText from '../../../components/typography/AppText'
 const RestaurantCard = ({ restaurant = {} }) => {
   const {
     name = 'Some Restaurant',
-    icon = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+    icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
     photos = ['https://picsum.photos/400/370'],
     address = '100 some random street',
     isOpenNow = true,
     rating = 4.5,
-    isClosedTemporarily = false,
-    phone = '+1 (123) 456-7890',
-    website = 'https://www.google.com',
-    price = '$$'
+    isClosedTemporarily = false
   } = restaurant
 
   const ratingArray = Array.from(new Array(Math.floor(rating)))
@@ -40,14 +40,21 @@ const RestaurantCard = ({ restaurant = {} }) => {
           </Avaiable>
         </ImageWrap>
         <CardContent>
-          <AppText variant="label">{name}</AppText>
-          <Rating>
-            <RateCount>{rating}</RateCount>
-            {ratingArray.map((_, index) => (
-              <SvgXml key={index} xml={star} width={20} height={20} />
-            ))}
-          </Rating>
-          <AppText variant="caption">{address}</AppText>
+          <Row>
+            <View>
+              <AppText variant="label">{name}</AppText>
+              <Rating>
+                <RateCount>{rating}</RateCount>
+                {ratingArray.map((_, index) => (
+                  <SvgXml key={index} xml={star} width={20} height={20} />
+                ))}
+              </Rating>
+              <AppText variant="caption">{address}</AppText>
+            </View>
+            <View>
+              <Icon source={{ uri: icon }} />
+            </View>
+          </Row>
         </CardContent>
       </AppCard>
     </Root>

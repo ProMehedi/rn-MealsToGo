@@ -4,7 +4,6 @@ import { ActivityIndicator } from 'react-native-paper'
 import styled from 'styled-components/native'
 
 const Root = styled(View)`
-  flex: 1;
   justify-content: center;
   align-items: center;
   width: 100%;
