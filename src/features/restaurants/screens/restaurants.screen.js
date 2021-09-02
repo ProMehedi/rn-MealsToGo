@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { TouchableOpacity } from 'react-native'
 
 import { Restaurants } from './restaurants.screen.style'
 import RestaurantCard from '../components/restaurant.card.component'
@@ -7,10 +8,13 @@ import SafeArea from '../../../utils/SafeArea'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
 import Loader from '../../../components/Loader'
 import Search from '../components/search.component'
-import { TouchableOpacity } from 'react-native'
+import { FavouritesContext } from '../../../services/favourites/favourites.context'
 
 const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading, error } = useContext(RestaurantsContext)
+  const { favourites } = useContext(FavouritesContext)
+
+  // console.log(favourites)
 
   return (
     <SafeArea>

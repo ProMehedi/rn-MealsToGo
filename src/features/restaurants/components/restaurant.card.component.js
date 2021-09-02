@@ -17,6 +17,7 @@ import {
 } from './restaurant.card.component.style'
 import star from '../../../../assets/star'
 import AppText from '../../../components/typography/AppText'
+import Favourite from '../../../components/favourites/favourite.component'
 
 const RestaurantCard = ({ restaurant = {} }) => {
   const {
@@ -36,6 +37,7 @@ const RestaurantCard = ({ restaurant = {} }) => {
       <AppCard>
         <ImageWrap>
           <CardCover source={{ uri: photos[0] }} />
+          <Favourite restaurant={restaurant} />
           {isClosedTemporarily && <Closed>Closed Temporarily</Closed>}
           <Avaiable open={isOpenNow}>
             {isOpenNow ? 'Open now' : 'Closed'}
