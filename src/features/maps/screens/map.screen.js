@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MapView from 'react-native-maps'
 import styled from 'styled-components/native'
+import CompactRestaurantInfo from '../../../components/restaurents/compact-restaurant-info.component'
 
 import { LocationContext } from '../../../services/location/location.context'
 import { RestaurantsContext } from '../../../services/restaurants/restaurants.context'
@@ -53,7 +54,7 @@ const MapScreen = ({ navigation }) => {
                   navigation.navigate('RestaurantDetail', { restaurant })
                 }
               >
-                <MapCallout restaurant={restaurant} />
+                <CompactRestaurantInfo callout restaurant={restaurant} />
               </MapView.Callout>
             </MapView.Marker>
           )

@@ -9,9 +9,10 @@ import { RestaurantsContext } from '../../../services/restaurants/restaurants.co
 import Loader from '../../../components/Loader'
 import Search from '../components/search.component'
 import { FavouritesContext } from '../../../services/favourites/favourites.context'
+import FavouritesBar from '../../../components/favourites/favourites-bar.component'
 
 const RestaurantsScreen = ({ navigation }) => {
-  const [isToggled, setIsToggled] = useState(false)
+  const [isToggled, setIsToggled] = useState(true)
   const { restaurants, isLoading, error } = useContext(RestaurantsContext)
   const { favourites } = useContext(FavouritesContext)
 
@@ -22,6 +23,12 @@ const RestaurantsScreen = ({ navigation }) => {
         isToggled={isToggled}
         onToggled={() => setIsToggled(!isToggled)}
       />
+      {isToggled && (
+        <FavouritesBar
+          favourites={favourites}
+          onNavigate={navigation.navigate}
+        />
+      )}
       <Restaurants
         data={restaurants}
         renderItem={({ item }) => (
