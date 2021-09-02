@@ -15,6 +15,7 @@ const Root = styled.View`
   border-bottom-width: 1px;
   border-color: ${(props) => props.theme.colors.brand.muted};
   background-color: #fff;
+  overflow: hidden;
 `
 const Title = styled.Text`
   margin-bottom: ${(props) => props.theme.space[1]};
