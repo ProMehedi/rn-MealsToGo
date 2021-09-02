@@ -9,7 +9,7 @@ export const Root = styled(View)`
   width: 100%;
   padding: ${(props) => props.theme.space[3]};
   z-index: 9;
-  top: ${StatusBar.currentHeight || 0}px;
+  top: ${StatusBar.currentHeight || 10}px;
 `
 
 const Search = () => {
