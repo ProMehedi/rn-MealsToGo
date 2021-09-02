@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { View } from 'react-native'
 import styled from 'styled-components/native'
 import { Searchbar } from 'react-native-paper'
+
 import { LocationContext } from '../../../services/location/location.context'
 
 export const Root = styled(View)`
@@ -9,7 +10,7 @@ export const Root = styled(View)`
   background-color: ${(props) => props.theme.colors.bg.primary};
 `
 
-const Search = () => {
+const Search = ({ isToggled, onToggled }) => {
   const { keyword, search } = useContext(LocationContext)
   const [query, setQuery] = useState(keyword)
 
@@ -20,6 +21,8 @@ const Search = () => {
   return (
     <Root>
       <Searchbar
+        icon={isToggled ? 'heart' : 'heart-outline'}
+        onIconPress={() => onToggled()}
         placeholder="Search location (Chicago)"
         value={query}
         onChangeText={(text) => setQuery(text)}

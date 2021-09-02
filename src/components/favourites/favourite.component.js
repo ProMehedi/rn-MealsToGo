@@ -6,10 +6,11 @@ import { FavouritesContext } from '../../services/favourites/favourites.context'
 
 const Root = styled(TouchableOpacity)`
   position: absolute;
-  top: ${(props) => props.theme.space[2]};
-  right: ${(props) => props.theme.space[2]};
+  top: ${(props) => props.theme.space[1]};
+  right: ${(props) => props.theme.space[1]};
   color: ${(props) => props.theme.colors.ui.quaternary};
   font-size: ${(props) => props.theme.fontSizes.body};
+  padding: ${(props) => props.theme.space[1]};
   z-index: 1;
 `
 
@@ -17,7 +18,6 @@ const Favourite = ({ restaurant }) => {
   const { favourites, addFavourite, removeFavourite } =
     useContext(FavouritesContext)
 
-  // const isFavourite = favourites.find((r) => r.placeid === restaurant.placeid)
   const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId)
 
   return (
