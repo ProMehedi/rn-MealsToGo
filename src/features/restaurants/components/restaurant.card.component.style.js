@@ -10,7 +10,7 @@ export const ImageWrap = styled(View)``
 
 export const Closed = styled(Text)`
   position: absolute;
-  top: ${(props) => props.theme.space[2]};
+  bottom: ${(props) => props.theme.space[2]};
   left: ${(props) => props.theme.space[2]};
   background-color: ${({ theme }) => theme.colors.ui.error};
   padding: ${(props) => props.theme.space[1]} ${(props) => props.theme.space[2]};
@@ -23,7 +23,7 @@ export const Closed = styled(Text)`
 
 export const Avaiable = styled(Text)`
   position: absolute;
-  top: ${(props) => props.theme.space[2]};
+  bottom: ${(props) => props.theme.space[2]};
   right: ${(props) => props.theme.space[2]};
   background-color: ${({ theme }) => theme.colors.ui.error};
   padding: ${(props) => props.theme.space[1]} ${(props) => props.theme.space[2]};
